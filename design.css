@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration:none;
+}
+
+html {
+  height:100%;
+  background:#000;
+}
+
+body {
+  min-height:100%;
+  padding:1.5em 7em;
+  background:#303030;
+  background: -webkit-gradient(
+	  linear,
+	  left top,
+	  right bottom,
+	  color-stop(0.16, rgb(64,64,64)),
+	  color-stop(0.44, rgb(48,48,48)),
+	  color-stop(0.62, rgb(32,32,32)));
+  background: -moz-linear-gradient(left top,
+	  rgb(64,64,64) 16%,
+	  rgb(48,48,48) 44%,
+	  rgb(32,32,32) 62%);
+  background: linear-gradient(left top,
+	  rgb(64,64,64) 16%,
+	  rgb(48,48,48) 44%,
+	  rgb(32,32,32) 62%);
+  -moz-box-shadow: inset 0px 0px 1em #000;
+  -webkit-box-shadow: inset 0px 0px 1em #000;
+  -o-box-shadow: inset 0px 0px 1em #000;
+  box-shadow: inset 0px 0px 1em #000;
+  border-radius:1em;
+  font-family: 'Droid Sans', sans-serif;
+  color:#EFEFEF;
+  font-size:16px; /* = 1.4em in Firefox */
+  margin: .5em;
+}
+
+h1, h2, h3, h4, h5, address:before {
+  color:#EF7600;
+  text-shadow: 0px 0px 0.1em #000;
+  margin-top:0em;
+  margin-bottom:0.1em;
+  font-weight:bold;
+  font-family:'Cherry Cream Soda', sans-serif;
+  font-style:italic;
+}
+
+h1 {
+  font-size:3.5em;
+  font-variant:small-caps;
+  letter-spacing: 0.125em;
+}
+
+h2, address:before {
+  font-size:1.8em;
+  margin-top:0.7em;
+  margin-bottom:0.1em;
+  clear: both;
+}
+
+h3 {
+  font-size:1.6em;
+}
+
+h4 {
+  font-size:1.4em;
+}
+
+h5 {
+  font-size:1.4em;
+}
+
+p, li, a {
+  line-height:125%;
+}
+
+p {
+  margin-bottom:0.2em;
+  word-wrap:break-word;
+}
+
+a {
+  color: #F08B2B;
+  padding:0.1em;
+  font-weight:bold;
+  text-shadow: 0px 0px 0.1em #000;
+  -moz-transition: text-shadow 0.1s ease-in, color 0.1s ease-in;
+  -webkit-transition: text-shadow 0.1s ease-in, color 0.1s ease-in;
+  -o-transition: text-shadow 0.1s ease-in, color 0.1s ease-in;
+  transition: text-shadow 0.1s ease-in, color 0.1s ease-in;
+}
+
+a:hover {
+  color:#F07A0A;
+  text-shadow: 0px 0px 0.2em #000;
+  transition: text-shadow 0.1s ease-in, color 0.1s ease-in;
+}
+
+a.download, a.goto {
+  text-wrap:none;
+  color:inherit;
+  font-weight:bold;
+  line-height:2.4em;
+  vertical-align:middle;
+  border:0.125em solid #F08B2B;
+  border-radius:1em;
+  background:rgba(240,139,43,0.05);
+  padding:0.5em;
+  padding-left:1em;
+  padding-right:1em;
+  -moz-box-shadow: 0px 0px 0.5em #000;
+  -webkit-box-shadow: 0px 0px 0.5em #000;
+  -o-box-shadow: 0px 0px 0.5em #000;
+  box-shadow: 0px 0px 0.5em #000;
+
+  -moz-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  -webkit-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  -o-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  text-decoration:none;
+}
+
+a.download:hover, a.goto:hover {
+  background:rgba(240,139,43,0.1);
+  border-color:#F07F13;
+  color:#F07F13;
+  -moz-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  -webkit-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  -o-transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+  transition: background 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in;
+}
+
+a.goto:before {
+  content: "⇨ ";
+}
+
+a.download:before {
+  content: "⇩ ";
+}
+
+a[href^='https://']:before, a[href^='http://']:before {
+  content: "⇨ ";
+}
+
+a.github:before {
+  content: ""
+}
+
+a[href^='mailto:']:before {
+  content: "✉ ";
+}
+
+p, li {
+  text-align:justify;
+  padding:0.1em 0;
+}
+
+div.iframe {
+  margin-top:0.8em;
+}
+
+iframe {
+/*
+  float:left;
+*/
+  -moz-box-shadow: 0px 0px 1em #000;
+  -webkit-box-shadow: 0px 0px 1em #000;
+  -o-box-shadow: 0px 0px 1em #000;
+  box-shadow: 0px 0px 1em #000;
+  margin-bottom:1em;
+  margin-right:2em;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+ul.download {
+  list-style-type: none;
+}
+
+ul.download li {
+  padding:0.7em;
+  padding-left:0;
+  float: left;
+}
+
+.clear {
+  clear:both;
+}
+
+address:before {
+  content: "Contact Info";
+  display:block !important;
+}
+
+address {
+  margin-top:0.6em;
+  font-style:normal;
+}

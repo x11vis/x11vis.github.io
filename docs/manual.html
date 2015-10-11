@@ -1,0 +1,905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.3" />
+<title>x11vis manual</title>
+<style type="text/css">
+/* Sans-serif font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+div#toctitle,
+span#author, span#revnumber, span#revdate, span#revremark,
+div#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+/* Serif font. */
+div.sectionbody {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* Monospace font. */
+tt {
+  font-size: inherit;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  font-size: inherit;
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+}
+
+div#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #777777;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toc {
+  margin-bottom: 2.5em;
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  var cont = document.getElementById("content");
+  var noteholder = document.getElementById("footnotes");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      // Use [\s\S] in place of . so multi-line matches work.
+      // Because JavaScript has no s (dotall) regex flag.
+      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      spans[i].innerHTML =
+        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+        "' title='View footnote' class='footnote'>" + n + "</a>]";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+}
+
+}
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>x11vis manual</h1>
+<span id="author">Michael Stapelberg</span><br />
+<span id="email"><tt>&lt;<a href="mailto:michael+x11vis@stapelberg.de">michael+x11vis@stapelberg.de</a>&gt;</tt></span><br />
+<span id="revdate">April 2011</span>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>This document describes the x11vis X11 visualizer. It should contain all
+information you need to setup and use x11vis on your system(s). Should you have
+any questions and/or improvements to this document, please contact me via IRC,
+XMPP or email.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_motivation">1. Motivation</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In the X11 development world, the most useful tool that is widely used is
+xtrace. It implements a proxy to which the X11 clients you want to trace
+connect and dumps the requests, replies and events which are sent in plain
+text.</p></div>
+<div class="paragraph"><p>While xtrace is very useful for debugging simple problems, there is a lot of
+room for improvement in the visualization of this output. Here are my ideas,
+ordered by importance:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Using plain text as output format is problematic. While plain text is
+   displayed just fine in a variety of programs and can be processed with
+   traditional UNIX tools such as grep, it is not very well arranged.<br />
+<br />
+   Instead, x11vis dumps the gathered information into a JSON file which is
+   afterwards loaded by a graphical user interface. Displaying the gathered
+   information can either be done live, post-mortem or periodically, whichever
+   model works best for debugging a particular problem.
+</p>
+</li>
+<li>
+<p>
+xtrace replaces X11 atom IDs with their corresponding names. While this is a
+   good idea, x11vis aims to go much further: For every ID it keeps track of
+   what the ID represents (a window, font, pixmap, …) and assigns a
+   human-readable name to it (which you can change interactively or with a set
+   of rules). For example, the window with ID 0x1800023 will be named Chromium
+   (using its <tt>WM_CLASS</tt> and/or <tt>_NET_WM_TITLE</tt>).<br />
+<br />
+   Also, this information will be available for all requests, replies and events
+   that use the particular ID, no matter when the <tt>_NET_WM_TITLE</tt> or <tt>WM_CLASS</tt> is
+   actually set (the information "travels in time").<br />
+<br />
+   Similar to assigning names to IDs, errors can be referenced from the requests
+   they correspond to.
+</p>
+</li>
+<li>
+<p>
+Due to xtrace dumping information as plain text, it needs to be as verbose as
+   possible. This is bad for a lot of requests, for example QueryTree which will
+   return a lot of window IDs in a typical X11 session. While you <strong>do</strong> want to
+   see the <tt>QueryTree</tt> request, you don’t necessarily want to look at it in
+   detail. x11vis therefore only displays a one-line summary of each request,
+   reply or event and provides detailed information when the user requests it.
+   Also, the summary strives to be as useful as possible while not consuming
+   much space. For example, instead of <tt>x=0 y=0 width=1280 height=800</tt>, x11vis
+   will display <tt>(0, 0) 1280x800</tt>.
+</p>
+</li>
+<li>
+<p>
+Filtering and searching is not handled by xtrace at all (obviously). x11vis
+   however provides various filter mechanisms to either complete hide specific
+   requests or groups of requests (the rendering includes CopyArea, …) or to
+   group these events. For example, you would get one line telling you that the
+   program requested 10 X11 atoms instead of 10 lines.<br />
+<br />
+   Furthermore, x11vis provides an IPC interface with which an application (in
+   debugging mode) or a user can set markers. These markers are shown clearly
+   visible in the GUI and you can jump to specific markers. By setting markers
+   before and after reproducing a specific bug you can significantly reduce the
+   amount of time you need to navigate through the collected information.
+</p>
+</li>
+<li>
+<p>
+Multiple clients are distinguished in xtrace by a different number at the
+   beginning of a line. x11vis only allows X11 TCP connections in order to
+   lookup the remote endpoint of the connection and display the program name /
+   commandline which initiated the connection. This greatly simplifies
+   distinguishing the different clients in your X11 session.<br />
+<br />
+   Another interesting idea in this area is to place the various clients next to
+   each other horizontally. While this only works well on big screens (you would
+   need to filter on smaller screens), it should make the involvement of the
+   different clients very clear.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assumptions">2. Assumptions</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>x11vis is modern software and software used for debugging/analyzing. Therefore
+I make a few assumptions which are not standard in software development:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The implementation of the program that acts as a proxy between X11 and your
+  client(s) is done in Perl instead of a low-level language such as C or C++.
+  This allows for short development times, efficient programs (achieve much
+  with little code) at the cost of a little performance and a higher start-up
+  time (due to compilation by the Perl interpreter).
+</p>
+</li>
+<li>
+<p>
+Memory consumption is per se not important. The machines I work with have 8
+  GB of memory, so I expect yours to have a few gigabytes, too. Of course,
+  reducing memory consumption where it’s easily possible is a good thing, but
+  it’s not very high priority. Usually, x11vis runtimes are short (a few
+  minutes to hours at most), so trading little memory usage with very detailed
+  and helpful debugging information is worth it.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements">3. Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>First of all: Please look if there are packages for the distribution you use.
+You should use them instead of installing everything manually.</p></div>
+<div class="paragraph"><p>If there are no packages, please install the software and create a package :-).</p></div>
+<div class="paragraph"><p>You need the following Perl modules (get them from CPAN):</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+AnyEvent
+</p>
+</li>
+<li>
+<p>
+AnyEvent::Socket
+</p>
+</li>
+<li>
+<p>
+Twiggy
+</p>
+</li>
+<li>
+<p>
+Dancer
+</p>
+</li>
+<li>
+<p>
+IO::All
+</p>
+</li>
+<li>
+<p>
+JSON::XS
+</p>
+</li>
+<li>
+<p>
+Moose
+</p>
+</li>
+<li>
+<p>
+MooseX::Singleton
+</p>
+</li>
+<li>
+<p>
+XML::Twig
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For the GUI, you need a recent browser with fast JavaScript support (the
+JavaScript libraries are bundled). I recommend Chromium. Please note, however,
+that you don’t <strong>need</strong> a browser on the machine you are running the interceptor
+on. You can just as well debug over a (local) network.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_it_running">4. Getting it running</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Use the <tt>x11vis(1)</tt> tool to automatically start an interceptor and run your application through the interceptor:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ x11vis xwininfo -root</tt></pre>
+</div></div>
+<div class="paragraph"><p>If this does not work for you for whatever reason, you can start the
+interceptor by hand (it is installed to
+<tt>/usr/lib/x11vis/interceptor/interceptor.pl</tt> by default) and then run your program:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ /usr/lib/x11vis/interceptor/interceptor.pl &amp;
+$ DISPLAY=127.0.0.1:0 xwininfo -root</tt></pre>
+</div></div>
+<div class="paragraph"><p>Then, connect to <a href="http://localhost:5523/">http://localhost:5523/</a> in your browser.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_blocks_of_x11vis">5. Building blocks of x11vis</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Interceptor
+</dt>
+<dd>
+<p>
+  The interceptor is the part of x11vis that sits between your client and the
+  x11 server (a proxy, so to say). It forwards packets in both directions and
+  dumps the dissected packets as JSON file.<br />
+ <br />
+  At the same time, the interceptor manages your traces and provides the
+  webinterface. It needs to run while you use the GUI.
+</p>
+</dd>
+<dt class="hdlist1">
+Burst
+</dt>
+<dd>
+<p>
+  A burst consists of multiple packets in either direction (from client to x11
+  or from x11 to the client). When the interceptor recognizes activity on a
+  socket, it will read until no more reading is possible.
+</p>
+</dd>
+<dt class="hdlist1">
+GUI
+</dt>
+<dd>
+<p>
+  x11vis’ graphical user interface (GUI) is implemented as a web application.
+  You can either access it on the local system or on a remote system.<br />
+ <br />
+  In the GUI, you can display, filter and analyze the packets the interceptor
+  collected so far. There are different packet types:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Requests (from the client to X11)
+</p>
+</li>
+<li>
+<p>
+Replies (from X11 to the client)
+</p>
+</li>
+<li>
+<p>
+Events (from X11 to the client)
+</p>
+</li>
+<li>
+<p>
+Cleverness: additional information collected by the interceptor, like titles
+   for window IDs, atom IDs, etc.
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Icing
+</dt>
+<dd>
+<p>
+  The short description of every packet is called icing (on the cake of the
+  full request data).
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_x11vis_graphical_user_interface">6. Using the x11vis Graphical User Interface</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction">6.1. Introduction</h3>
+<div class="paragraph"><p>After pointing your browser to <a href="http://localhost:5523/">http://localhost:5523/</a>, you will see the x11vis
+welcome page, redirecting you to a particular session. In the future, you will
+be able to store sessions along with annotations and the preferences you have
+made. It should look like this:</p></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="gui_overview.png">
+<img src="gui_overview.png" alt="GUI" width="948" />
+</a>
+</span></p></div>
+<div class="paragraph"><p>The x11vis GUI consists of two parts: On the right side, you have the
+information panel, showing you information about selected elements and allowing
+you to filter certain packets, clients, etc. The rest of the page is filled
+with the collected data itself. This data can be bursts (multiple packets, such
+as requests, replies, events or errors) or markers.</p></div>
+<div class="paragraph"><p>A burst looks like this:</p></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="burst.png">
+<img src="burst.png" alt="Burst" width="645" />
+</a>
+</span></p></div>
+<div class="paragraph"><p>You can see some meta information on the top of each burst:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+On the left side, you can see which program is involved in this burst (the
+  little arrow behind the program name indicates the direction).
+</p>
+</li>
+<li>
+<p>
+On the right side, the timestamps specifies the elapsed time (in seconds)
+  since the program connected.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The packets included in each burst have different colors, indicating what type
+of packet they are: requests are grey, replies are green (while errors are red)
+and events are yellow.</p></div>
+<div class="paragraph"><p>By default, every packet has a short description which contains the most useful
+information (in general) about this packet. Let’s consider the <tt>GetGeometry</tt>
+reply: The most interesting information is the geometry itself (x, y, width,
+height) and for which window this reply was. More detailed information like the
+color depth or border width are available after expanding the packet by
+clicking on it (you can see a little expand icon on the left when you move your
+mouse over the packet).</p></div>
+</div>
+<div class="sect2">
+<h3 id="_folding">6.2. Folding</h3>
+<div class="paragraph"><p>By default, x11vis folds sequences (more than 5) of "boring" packets. By
+clicking on the packet, you can expand them to their full length. Packet
+types considered boring are currently:</p></div>
+<div class="paragraph"><p>InternAtom, GrabKey, ImageText8, ImageText16</p></div>
+</div>
+<div class="sect2">
+<h3 id="_using_markers">6.3. Using markers</h3>
+<div class="paragraph"><p>When handling a large amount of data, navigation can be quite hard. While you
+can hide some packet types or whole clients completely, you might want to look
+at every detail to make sure everything is alright.</p></div>
+<div class="paragraph"><p>To quickly navigate to the important part of the output, x11vis supports
+markers. You can either manually set markers by using the <tt>x11vis(1)</tt> utility
+or you can tell your programs to set markers at interesting points.</p></div>
+<div class="paragraph"><p>In the GUI, markers are displayed as a line with red background, so you can
+easily spot them:</p></div>
+<div class="paragraph"><p><span class="image">
+<a class="image" href="marker.png">
+<img src="marker.png" alt="Marker" width="933" />
+</a>
+</span></p></div>
+<div class="paragraph"><p>Also, you can see the marker bar at the bottom of the screen which displays the
+next and previous marker. By clicking on the display markers, you will jump to
+them.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2011-04-10 20:52:37 CEST
+</div>
+</div>
+</body>
+</html>
