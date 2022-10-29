@@ -34,7 +34,7 @@ body {
   -o-box-shadow: inset 0px 0px 1em #000;
   box-shadow: inset 0px 0px 1em #000;
   border-radius:1em;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   color:#EFEFEF;
   font-size:16px; /* = 1.4em in Firefox */
   margin: .5em;
